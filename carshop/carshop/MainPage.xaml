@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="carshop.MainPage">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Машины:"/>
+                <CollectionView Grid.Row="1" ItemsSource="{Binding CarList}" SelectedItem="{Binding SelectedCar}" SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text= "{Binding Name}"/>
+                                <Label Text="{Binding Price}"/>
+                                <Label Text="{Binding Info}"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Колеса:"/>
+                <CollectionView Grid.Row="1" ItemsSource="{Binding WheelList}" SelectedItem="{Binding SelectedWheel}" SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Price}"/>
+                                <Label Text="{Binding Info}"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Типы:"/>
+                <CollectionView Grid.Row="1" ItemsSource="{Binding TypeList}" SelectedItem="{Binding SelectedType}" SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding Name}"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="135"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+            <Button BackgroundColor="DarkGray" HorizontalOptions="StartAndExpand"  Grid.Column="0" FontSize="9.5" Text="Добавить машину" Clicked="AddCar" />
+            <Button BackgroundColor="Gray" HorizontalOptions="StartAndExpand"  Grid.Column="1" FontSize="9.5" Text="Добавить колеса" Clicked="AddWheel" />
+            <Button BackgroundColor="DimGray" HorizontalOptions="StartAndExpand"  Grid.Column="2" FontSize="9.5" Text="Добавить тип" Clicked="AddType" />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="106"/>
+                <ColumnDefinition Width="175"/>
+                <ColumnDefinition Width="114"/>
+            </Grid.ColumnDefinitions>
+            <Button BackgroundColor="DarkGray" HorizontalOptions="CenterAndExpand" Grid.Column="0" FontSize="9.5" Text="Редактировать" Clicked="EditCar" />
+            <Button BackgroundColor="Gray" HorizontalOptions="CenterAndExpand" Grid.Column="1" FontSize="9.5" Text="Редактировать" Clicked="EditWheel" />
+            <Button BackgroundColor="DimGray" HorizontalOptions="CenterAndExpand" Grid.Column="2" FontSize="9.5" Text="Редактировать" Clicked="EditType" />
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="115"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="130"/>
+            </Grid.ColumnDefinitions>
+            <Button BackgroundColor="DarkGray" HorizontalOptions="EndAndExpand"  Grid.Column="0" FontSize="9.5" Text="Удалить машину" Clicked="DeleteCar" />
+            <Button BackgroundColor="Gray" HorizontalOptions="EndAndExpand"  Grid.Column="1" FontSize="9.5" Text="Удалить колесо" Clicked="DeleteWheel" />
+            <Button BackgroundColor="DimGray" HorizontalOptions="EndAndExpand"  Grid.Column="2" FontSize="9.5" Text="Удалить тип" Clicked="DeleteType" />
+        </Grid>
+    </StackLayout>
+</ContentPage>
